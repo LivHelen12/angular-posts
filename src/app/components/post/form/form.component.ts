@@ -20,10 +20,11 @@ export class FormPostComponent {
     this.postForm = this.formBuilder.group({
       post: [null],
     });
+
   }
 
   onSubmit() {
-    this.postService.createPost(this.postForm.value).subscribe(post => {
+    this.postService.createPost(this.postForm.value.post).subscribe(post => {
       console.log('Post criado:', post);
       this.postForm.reset();
     })

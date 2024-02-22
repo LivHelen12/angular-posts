@@ -20,11 +20,5 @@ import { Observable } from 'rxjs';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  posts!: Observable<Post[]>;
-
-  constructor(private postService: PostService) { }
-
-  ngOnInit() {
-    this.posts = this.postService.getPosts();
-  }
+  constructor() { }
 }

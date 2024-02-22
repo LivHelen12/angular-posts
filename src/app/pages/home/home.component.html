@@ -1,8 +1,4 @@
 <div class="container">
   <app-form-post></app-form-post>
-    <div *ngIf="posts | async as loadedPosts">
-      <div *ngFor="let post of loadedPosts">
-        <app-card [post]="post"></app-card>
-      </div>
-    </div>
+  <app-card></app-card>
 </div>

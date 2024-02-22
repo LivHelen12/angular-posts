@@ -1,8 +1,10 @@
+import { PostService } from './../../../services/post.service';
 import { Component, Input } from '@angular/core';
 import { PhotoComponent } from '../../user/photo/photo.component';
 import { ContainerComponent } from '../container/container.component';
 import { Post } from '../../../types/post';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-card',
@@ -13,7 +15,11 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CardComponent {
-  @Input() post!: Post;
+  posts!: Observable<Post[]>;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
+
+  ngOnInit() {
+    this.posts = this.postService.getPosts();
+  }
 }
