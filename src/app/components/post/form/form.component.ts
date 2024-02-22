@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { PhotoComponent } from '../../user/photo/photo.component';
 import { ContainerComponent } from '../container/container.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -20,13 +20,10 @@ export class FormPostComponent {
     this.postForm = this.formBuilder.group({
       post: [null],
     });
-
   }
 
   onSubmit() {
-    this.postService.createPost(this.postForm.value.post).subscribe(post => {
-      console.log('Post criado:', post);
-      this.postForm.reset();
-    })
+    this.postService.createPost(this.postForm.value.post);
+    this.postForm.reset();
   };
 }
