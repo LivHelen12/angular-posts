@@ -4,21 +4,24 @@
       <app-photo></app-photo>
     </div>
 
-    <div class="post__content">
-      <div class="post__content__text">
-        <form class="post__content__form">
-          <textarea name="post" id="post" cols="63" rows="3" placeholder="What is happening?"
-          class="post__content__form__textarea"></textarea>
-        </form>
-      </div>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="post__content__form">
+      <div class="post__content">
+        <div class="post__content__text">
 
-      <footer class="footer">
-        <div class="footer__actions">
-          <button type="submit" class="footer__button">
-            Postar
-          </button>
+          <label for="post">Post</label>
+          <textarea id="post" formControlName="post" cols="63" rows="3" placeholder="What is happening?"
+            class="post__content__form__textarea"></textarea>
         </div>
-      </footer>
-    </div>
+
+        <footer class="footer">
+          <div class="footer__actions">
+            <button type="submit" class="footer__button">
+              Postar
+            </button>
+          </div>
+        </footer>
+      </div>
+    </form>
   </div>
+
 </app-container>

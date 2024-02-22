@@ -28,7 +28,7 @@ export class PostService {
           id: Math.floor(Math.random() * 1000),
           name: "Novo usuário",
           username: "novo_usuario",
-          photo_url: "https://i.pravatar.cc/150?u=novo_usuario",
+          photo_url: "https://avatars.githubusercontent.com/u/62712621?v=4",
           postedAt: new Date(),
           content: content
         };
