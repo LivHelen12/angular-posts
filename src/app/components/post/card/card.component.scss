@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  gap: .5rem;
+
+  &__content {
+    &__user {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      margin-bottom: .5rem;
+    }
+
+    &__date, &__username {
+      font-size: 13px;
+      color: #717171;
+    }
+  }
+}
+
+.footer {
+  &__actions {
+    width: 100%;
+    margin: 1rem 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border: none;
+      background: none;
+    }
+  }
+}
