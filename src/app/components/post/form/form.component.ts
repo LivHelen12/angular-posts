@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PhotoComponent } from '../../user/photo/photo.component';
 import { ContainerComponent } from '../container/container.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
 @Component({
   selector: 'app-form-post',
@@ -18,7 +18,7 @@ export class FormPostComponent {
 
   ngOnInit() {
     this.postForm = this.formBuilder.group({
-      post: [null],
+      post: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(280)]],
     });
   }
 

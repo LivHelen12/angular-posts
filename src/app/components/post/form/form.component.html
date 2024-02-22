@@ -15,7 +15,7 @@
 
         <footer class="footer">
           <div class="footer__actions">
-            <button type="submit" class="footer__button">
+            <button [disabled]="postForm.invalid" type="submit" class="footer__button">
               Postar
             </button>
           </div>
