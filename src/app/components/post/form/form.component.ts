@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../../user/photo/photo.component';
 import { ContainerComponent } from '../container/container.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PostService } from '../../../services/post.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PostService } from '../../../services/post/post.service';
 @Component({
   selector: 'app-form-post',
   standalone: true,
@@ -12,18 +12,12 @@ import { PostService } from '../../../services/post.service';
 })
 
 export class FormPostComponent {
-  postForm!: FormGroup;
 
-  constructor(private postService: PostService, private formBuilder: FormBuilder) { }
+  postForm = new FormGroup({
+    post: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(280)])
+  });
 
-  ngOnInit() {
-    this.postForm = this.formBuilder.group({
-      post: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(280)]],
-    });
-  }
+  constructor() { }
 
-  onSubmit() {
-    this.postService.createPost(this.postForm.value.post);
-    this.postForm.reset();
-  };
+  onSubmit() { };
 }
