@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Post } from '../../types/post';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class PostApiService {
+  apiUrl = "./assets/data.json";
+
   constructor(private http: HttpClient) { }
 
-  get<T>(url: string): Observable<T> {
-    return this.http.get<T>(url);
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl);
   }
 }
