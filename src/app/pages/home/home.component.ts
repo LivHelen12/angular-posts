@@ -24,8 +24,6 @@ export class HomeComponent implements OnInit {
   constructor(private postApiService: PostApiService) { }
 
   ngOnInit() {
-    this.postApiService.getPosts().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    })
+    this.posts = this.postApiService.getPosts();
   }
 }
