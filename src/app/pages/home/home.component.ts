@@ -1,11 +1,10 @@
-import { PostService } from './../../services/post.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormPostComponent } from '../../components/post/form/form.component';
 import { CardComponent } from '../../components/post/card/card.component';
-import { Post } from '../../types/post';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Post } from '../../types/post';
+import { PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +18,14 @@ import { Observable } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  constructor() { }
+export class HomeComponent implements OnInit {
+  posts: Post[] = [];
+
+  constructor(private postService: PostService) { }
+
+  ngOnInit() {
+    this.postService.getPosts().subscribe((posts: Post[]) => {
+      this.posts = posts;
+    })
+  }
 }
