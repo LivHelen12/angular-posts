@@ -1,12 +1,12 @@
 <ng-container>
   <app-header></app-header>
-    <div class="container">
+  <div class="container">
     <app-form-post></app-form-post>
+  </div>
 
-    <div *ngIf="posts.length > 0; else showNoPosts">
-      <div *ngFor="let post of posts">
-        <app-post [post]="post"></app-post>
-      </div>
+  <div *ngIf="posts.length > 0; else showNoPosts">
+    <div *ngFor="let post of posts">
+      <app-post [post]="post"></app-post>
     </div>
   </div>
 </ng-container>
