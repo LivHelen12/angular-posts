@@ -1,8 +1,13 @@
 header {
   width: 100%;
+
   display: flex;
   justify-content: space-between;
+ 
   padding: 1rem .8rem;
-
   border-bottom: 1px solid #efefef;
+
+  span {
+    font-size: 1.3rem;
+  }
 }
