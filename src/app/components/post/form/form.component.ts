@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PhotoComponent } from '../../user/photo/photo.component';
 import { ContainerComponent } from '../container/container.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PostApiService } from '../../../services/post/post-api.service';
+import { PostService } from '../../../services/post/post.service';
 @Component({
   selector: 'app-form-post',
   standalone: true,
@@ -12,16 +12,15 @@ import { PostApiService } from '../../../services/post/post-api.service';
 })
 
 export class FormPostComponent {
-
   postForm = new FormGroup({
     post: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(280)])
   });
 
-  constructor(private postApiService: PostApiService) { }
+  constructor(private postService: PostService) { }
 
   onSubmit() {
     if (this.postForm.valid) {
-      this.postApiService.createPost(this.postForm.value.post || "");
+      this.postService.create(this.postForm.value.post || "");
       this.postForm.reset();
     }
   };

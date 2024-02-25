@@ -4,7 +4,7 @@ import { FormPostComponent } from '../../components/post/form/form.component';
 import { CardComponent } from '../../components/post/card/card.component';
 import { CommonModule } from '@angular/common';
 import { Post } from '../../types/post';
-import { PostApiService } from '../../services/post/post-api.service';
+import { PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +19,17 @@ import { PostApiService } from '../../services/post/post-api.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  posts: Post[] = [];
+  posts!: Post[];
 
-  constructor(private postApiService: PostApiService) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
-    this.posts = this.postApiService.getPosts();
+    this.getAllPosts();
+  }
+
+  getAllPosts() {
+    this.postService.postsSubject$.subscribe((posts) => {
+      this.posts = posts;
+    })
   }
 }
