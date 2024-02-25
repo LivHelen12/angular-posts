@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormPostComponent } from '../../components/post/form/form.component';
 import { CommonModule } from '@angular/common';
 import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
 import { HeaderComponent } from '../../shared/header/header.component';
-import { postComponent } from '../../components/post/post/post.component';
-import { Subject, Subscription, take, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
+import { PostComponent } from '../../components/post/post.component';
+import { FormPostComponent } from '../../components/form/form.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ import { Subject, Subscription, take, takeUntil } from 'rxjs';
     RouterModule,
     FormPostComponent,
     HeaderComponent,
-    postComponent
+    PostComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

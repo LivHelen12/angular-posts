@@ -5,13 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../interfaces/post';
 import { PhotoComponent } from '../../shared/photo/photo.component';
-import { postComponent } from '../../components/post/post/post.component';
 import { Subject, takeUntil } from 'rxjs';
+import { PostComponent } from '../../components/post/post.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PhotoComponent, postComponent],
+  imports: [CommonModule, HeaderComponent, PhotoComponent, PostComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })

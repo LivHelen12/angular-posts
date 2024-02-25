@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Post } from '../../../interfaces/post';
 import { CommonModule } from '@angular/common';
-import { PhotoComponent } from '../../../shared/photo/photo.component';
-import { PostService } from '../../../services/post/post.service';
 import { RouterModule } from '@angular/router';
+import { PhotoComponent } from '../../shared/photo/photo.component';
+import { Post } from '../../interfaces/post';
+import { PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-post',
@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './post.component.scss'
 })
 
-export class postComponent {
+export class PostComponent {
   @Input() post!: Post;
 
   constructor(private postService: PostService) { }
