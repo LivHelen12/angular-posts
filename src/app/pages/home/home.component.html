@@ -2,8 +2,16 @@
   <div class="container">
     <app-form-post></app-form-post>
 
-    <div *ngFor="let post of posts">
-      <app-card [post]="post"></app-card>
+    <div *ngIf="posts.length > 0; else showNoPosts">
+      <div *ngFor="let post of posts">
+        <app-card [post]="post"></app-card>
+      </div>
     </div>
   </div>
 </ng-container>
+
+<ng-template #showNoPosts>
+  <div class="no__posts">
+    <p>Faça sua primeira publicação</p>
+  </div>
+</ng-template>

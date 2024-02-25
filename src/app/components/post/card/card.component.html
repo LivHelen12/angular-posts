@@ -1,4 +1,4 @@
-<ng-container *ngIf="post; else showNoPosts">
+<ng-container *ngIf="post">
   <app-container>
     <div class="card">
       <div class="card__header">
@@ -28,9 +28,3 @@
     </div>
   </app-container>
 </ng-container>
-
-<ng-template #showNoPosts>
-  <div class="no__posts">
-    <p>Faça sua primeira publicação</p>
-  </div>
-</ng-template>
