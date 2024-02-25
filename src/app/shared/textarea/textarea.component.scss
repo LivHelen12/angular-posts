@@ -1,0 +1,42 @@
+.wrapper {
+  background: #fff;
+  width: 420px;
+  border-radius: 15px;
+}
+
+.textarea-box {
+  padding-top: 10px;
+  border-bottom: 1px solid #e6e6e6;
+
+  .textarea {
+    outline: none;
+    font-size: 17px;
+    min-height: inherit;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+  }
+
+  .tweet-area {
+    position: relative;
+    min-height: 50px;
+    max-height: 170px;
+    overflow-y: auto;
+
+    .editable {
+      position: relative;
+      width: 100%;
+      z-index: 5;
+      border: none;
+    }
+
+    .readonly {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      color: transparent;
+      background: transparent;
+    }
+  }
+}

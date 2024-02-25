@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormPostComponent } from '../../components/post/form/form.component';
-import { CardComponent } from '../../components/post/card/card.component';
 import { CommonModule } from '@angular/common';
-import { Post } from '../../types/post';
+import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
+import { HeaderComponent } from '../../shared/header/header.component';
+import { postComponent } from '../../components/post/post/post.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { PostService } from '../../services/post/post.service';
     CommonModule,
     RouterModule,
     FormPostComponent,
-    CardComponent
+    HeaderComponent,
+    postComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

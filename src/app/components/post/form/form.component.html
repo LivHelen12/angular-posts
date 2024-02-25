@@ -1,27 +1,10 @@
-<app-container>
+<ng-container>
   <div class="post">
-    <div class="post__header">
-      <app-photo></app-photo>
-    </div>
-
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="post__content__form">
-      <div class="post__content">
-        <div class="post__content__text">
-
-          <label for="post">Post</label>
-          <textarea id="post" formControlName="post" cols="63" rows="3" placeholder="What is happening?"
-            class="post__content__form__textarea"></textarea>
-        </div>
-
-        <footer class="footer">
-          <div class="footer__actions">
-            <button [disabled]="postForm.invalid" type="submit" class="footer__button">
-              Postar
-            </button>
-          </div>
-        </footer>
-      </div>
+    <app-photo></app-photo>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <app-textarea></app-textarea>
+      <app-button></app-button>
     </form>
   </div>
 
-</app-container>
+</ng-container>

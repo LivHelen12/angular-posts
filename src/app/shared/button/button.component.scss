@@ -1,0 +1,19 @@
+
+.bottom {
+  display: flex;
+  margin-top: 13px;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    padding: 9px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #1da1f2;
+    color: #fff;
+    cursor: pointer;
+  }
+}

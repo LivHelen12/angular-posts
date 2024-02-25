@@ -1,0 +1,23 @@
+<ng-container>
+  <div class="post">
+    <app-photo></app-photo>
+
+    <div class="content">
+      <div class="user">
+        <h4>{{ post.name }}</h4>
+        <p class="username">{{ post.username }}</p>
+        <p class="date">• {{ post.postedAt | date: "MMM d, y" }}</p>
+      </div>
+
+      <div class="text">
+        <p>{{ post.content }}</p>
+      </div>
+
+      <footer>
+        <div class="actions">
+          <button>❤️ 40</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+</ng-container>

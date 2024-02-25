@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
-import { PhotoComponent } from '../../user/photo/photo.component';
-import { ContainerComponent } from '../container/container.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post/post.service';
+import { PhotoComponent } from '../../../shared/photo/photo.component';
+import { ButtonComponent } from '../../../shared/button/button.component';
+import { TextareaComponent } from '../../../shared/textarea/textarea.component';
 @Component({
   selector: 'app-form-post',
   standalone: true,
-  imports: [PhotoComponent, ContainerComponent, ReactiveFormsModule],
+  imports: [
+    PhotoComponent,
+    ReactiveFormsModule,
+    ButtonComponent,
+    TextareaComponent
+  ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
 })

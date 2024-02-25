@@ -1,7 +1,7 @@
 import { StorageService } from './../storage/storage.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Post } from '../../types/post';
+import { Post } from '../../interfaces/post';
 
 @Injectable({
   providedIn: 'root'
