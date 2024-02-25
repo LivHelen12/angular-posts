@@ -20,6 +20,4 @@ export class CardComponent {
   @Input() post!: Post;
 
   constructor() { }
-
-  ngOnInit() { }
 }
