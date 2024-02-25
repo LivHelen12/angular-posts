@@ -5,19 +5,20 @@ import { Post } from '../../interfaces/post';
   providedIn: 'root'
 })
 export class StorageService {
+  storageKey = "posts";
   constructor() { }
 
-  set(key: string, value: Post[]) {
-    localStorage.setItem(key, JSON.stringify(value));
+  set(value: Post[]) {
+    localStorage.setItem(this.storageKey, JSON.stringify(value));
   }
 
-  get(key: string) {
-    const value = localStorage.getItem(key);
+  get() {
+    const value = localStorage.getItem(this.storageKey);
     return value ? JSON.parse(value) : null;
   }
 
-  remove(key: string) {
-    localStorage.removeItem(key);
+  remove() {
+    localStorage.removeItem(this.storageKey);
   }
 
   clear() {

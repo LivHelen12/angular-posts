@@ -8,7 +8,6 @@ import { Post } from '../../interfaces/post';
 })
 
 export class PostService {
-  storageKey = "posts";
   postsSubject$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
 
   constructor(private storageService: StorageService) {
@@ -28,12 +27,12 @@ export class PostService {
     const currentPosts = this.postsSubject$.getValue();
     const updatedPosts = [newPost, ...currentPosts];
 
-    this.storageService.set(this.storageKey, updatedPosts);
+    this.storageService.set(updatedPosts);
     this.postsSubject$.next(updatedPosts);
   }
 
   list() {
-    const storedPosts = this.storageService.get(this.storageKey);
+    const storedPosts = this.storageService.get();
 
     if (storedPosts) {
       this.postsSubject$.next(storedPosts);
@@ -43,7 +42,7 @@ export class PostService {
   remove(id: number) {
     const allPosts = this.postsSubject$.getValue();
     const filteredPosts = allPosts.filter((posts) => posts.id !== id);
-    this.storageService.set(this.storageKey, filteredPosts);
+    this.storageService.set(filteredPosts);
     this.postsSubject$.next(filteredPosts);
   }
 }
