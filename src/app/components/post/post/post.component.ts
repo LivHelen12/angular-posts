@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Post } from '../../../interfaces/post';
 import { CommonModule } from '@angular/common';
 import { PhotoComponent } from '../../../shared/photo/photo.component';
+import { PostService } from '../../../services/post/post.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -9,6 +11,7 @@ import { PhotoComponent } from '../../../shared/photo/photo.component';
   imports: [
     CommonModule,
     PhotoComponent,
+    RouterModule
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
@@ -17,5 +20,9 @@ import { PhotoComponent } from '../../../shared/photo/photo.component';
 export class postComponent {
   @Input() post!: Post;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
+
+  onDelete(id: number) {
+    this.postService.remove(id);
+  }
 }

@@ -6,6 +6,7 @@ import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { postComponent } from '../../components/post/post/post.component';
+import { Subject, Subscription, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ import { postComponent } from '../../components/post/post/post.component';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   posts!: Post[];
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(private postService: PostService) { }
 
@@ -30,12 +32,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getAllPosts() {
-    this.postService.postsSubject$.subscribe((posts) => {
+    this.postService.postsSubject$.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe((posts) => {
       this.posts = posts;
     })
   }
 
   ngOnDestroy() {
-    this.postService.postsSubject$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

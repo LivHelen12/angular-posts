@@ -3,14 +3,17 @@
     <app-photo></app-photo>
 
     <div class="content">
-      <div class="user">
-        <h4>{{ post.name }}</h4>
-        <p class="username">{{ post.username }}</p>
-        <p class="date">• {{ post.postedAt | date: "MMM d, y" }}</p>
-      </div>
+      <a [routerLink]="['/post', post.id]">
+        <div class="user">
+          <h4>{{ post.name }}</h4>
+          <p class="username">{{ post.username }}</p>
+          <p class="date">• {{ post.postedAt | date: "MMM d, y" }}</p>
+        </div>
+      </a>
 
       <div class="text">
         <p>{{ post.content }}</p>
+        <button type="button" (click)="onDelete(post.id)">🗑️</button>
       </div>
 
       <footer>

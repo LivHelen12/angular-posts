@@ -10,7 +10,6 @@ import { Post } from '../../interfaces/post';
 export class PostService {
   storageKey = "posts";
   postsSubject$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
-  post!: Post[];
 
   constructor(private storageService: StorageService) {
     this.list();
@@ -18,7 +17,7 @@ export class PostService {
 
   create(content: string) {
     const newPost: Post = {
-      id: Math.random(),
+      id: this.postsSubject$.getValue().length + 1,
       name: "Meu usuário",
       username: "myuser",
       postedAt: new Date(),
@@ -39,5 +38,12 @@ export class PostService {
     if (storedPosts) {
       this.postsSubject$.next(storedPosts);
     }
+  }
+
+  remove(id: number) {
+    const allPosts = this.postsSubject$.getValue();
+    const filteredPosts = allPosts.filter((posts) => posts.id !== id);
+    this.storageService.set(this.storageKey, filteredPosts);
+    this.postsSubject$.next(filteredPosts);
   }
 }
