@@ -16,4 +16,13 @@
     color: #fff;
     cursor: pointer;
   }
+
+  button:hover {
+    background: #0f8bdf;
+  }
+
+  button:disabled {
+    background: #b3b3b3;
+    cursor: not-allowed;
+  }
 }

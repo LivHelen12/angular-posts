@@ -2,9 +2,11 @@
   <div class="post">
     <app-photo></app-photo>
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <app-textarea></app-textarea>
-      <app-button></app-button>
+      <app-textarea 
+        [id]="'post'"
+        [control]="postForm.controls.post"
+      ></app-textarea>
+      <app-button [disabled]="postForm.invalid"></app-button>
     </form>
   </div>
-
 </ng-container>

@@ -19,7 +19,7 @@ import { TextareaComponent } from '../../../shared/textarea/textarea.component';
 
 export class FormPostComponent {
   postForm = new FormGroup({
-    post: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(280)])
+    post: new FormControl("", [Validators.required, Validators.minLength(1), Validators.maxLength(190)])
   });
 
   constructor(private postService: PostService) { }
