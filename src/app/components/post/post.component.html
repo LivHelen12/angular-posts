@@ -7,7 +7,7 @@
         <div class="user">
           <h4>{{ post.name }}</h4>
           <p class="username">{{ post.username }}</p>
-          <p class="date">• {{ post.postedAt | date: "MMM d, y" }}</p>
+          <p class="date">• {{ post.postedAt | datetime }}</p>
         </div>
       </a>
 

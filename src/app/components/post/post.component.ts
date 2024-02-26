@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { PhotoComponent } from '../../shared/photo/photo.component';
 import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
+import { DatetimePipe } from '../../pipe/datetime.pipe';
 
 @Component({
   selector: 'app-post',
@@ -11,7 +12,8 @@ import { PostService } from '../../services/post/post.service';
   imports: [
     CommonModule,
     PhotoComponent,
-    RouterModule
+    RouterModule,
+    DatetimePipe
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
