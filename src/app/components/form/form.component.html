@@ -6,7 +6,11 @@
         [id]="'post'"
         [control]="postForm.controls.post"
       ></app-textarea>
-      <app-button [disabled]="postForm.invalid"></app-button>
+      
+      <div class="actions-container">
+        <app-actions></app-actions>
+        <app-button [disabled]="postForm.invalid"></app-button>
+      </div>
     </form>
   </div>
 </ng-container>

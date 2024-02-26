@@ -4,6 +4,7 @@ import { PhotoComponent } from '../../shared/photo/photo.component';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { TextareaComponent } from '../../shared/textarea/textarea.component';
 import { PostService } from '../../services/post/post.service';
+import { ActionsComponent } from '../../shared/actions/actions.component';
 @Component({
   selector: 'app-form-post',
   standalone: true,
@@ -11,7 +12,8 @@ import { PostService } from '../../services/post/post.service';
     PhotoComponent,
     ReactiveFormsModule,
     ButtonComponent,
-    TextareaComponent
+    TextareaComponent,
+    ActionsComponent
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
