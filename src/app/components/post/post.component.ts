@@ -5,6 +5,8 @@ import { PhotoComponent } from '../../shared/photo/photo.component';
 import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
 import { DatetimePipe } from '../../pipes/datetime.pipe';
+import { ModalComponent } from '../../shared/modal/modal.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-post',
@@ -13,7 +15,9 @@ import { DatetimePipe } from '../../pipes/datetime.pipe';
     CommonModule,
     PhotoComponent,
     RouterModule,
-    DatetimePipe
+    DatetimePipe,
+    ModalComponent,
+    OverlayModule
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
@@ -22,6 +26,7 @@ import { DatetimePipe } from '../../pipes/datetime.pipe';
 export class PostComponent implements OnInit {
   @Input() post!: Post;
   isLiked!: boolean;
+  isOpen = false;
 
   constructor(private postService: PostService) { }
 

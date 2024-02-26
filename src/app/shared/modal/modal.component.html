@@ -1,0 +1,21 @@
+<button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  {{isOpen ? "Fechar" : "Abrir"}}
+</button>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+  <div class="modal">
+    <div class="content">
+      <h3>Excluir</h3>
+      <p>Tem certeza que deseja excluir?</p>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="primary">Excluir</button>
+      <button type="button" class="secondary">Cancelar</button>
+    </div>
+  </div>
+</ng-template>
