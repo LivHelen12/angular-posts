@@ -21,7 +21,9 @@ export class PostService {
       username: "myuser",
       postedAt: new Date(),
       content: content,
-      photo_url: "https://avatars.githubusercontent.com/u/62712621?v=4"
+      photo_url: "https://avatars.githubusercontent.com/u/62712621?v=4",
+      likes: 10,
+      isAlreadyLiked: false,
     };
 
     const currentPosts = this.postsSubject$.getValue();
@@ -44,5 +46,18 @@ export class PostService {
     const filteredPosts = allPosts.filter((posts) => posts.id !== id);
     this.storageService.set(filteredPosts);
     this.postsSubject$.next(filteredPosts);
+  }
+
+  toggleLike(id: number) {
+    const allPosts = this.postsSubject$.getValue();
+    const postToLike = allPosts.find((post) => post.id === id);
+
+    if (postToLike) {
+      postToLike.isAlreadyLiked = !postToLike.isAlreadyLiked;
+      postToLike.likes += postToLike.isAlreadyLiked ? 1 : -1;
+    }
+
+    this.storageService.set(allPosts);
+    this.postsSubject$.next(allPosts);
   }
 }

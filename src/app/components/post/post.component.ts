@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PhotoComponent } from '../../shared/photo/photo.component';
@@ -17,12 +17,22 @@ import { PostService } from '../../services/post/post.service';
   styleUrl: './post.component.scss'
 })
 
-export class PostComponent {
+export class PostComponent implements OnInit {
   @Input() post!: Post;
+  isLiked!: boolean;
 
   constructor(private postService: PostService) { }
 
+  ngOnInit() {
+    this.isLiked = this.post.isAlreadyLiked;
+  }
+
   onDelete(id: number) {
     this.postService.remove(id);
+  }
+
+  onLike(id: number) {
+    this.isLiked = !this.post.isAlreadyLiked;
+    this.postService.toggleLike(id);
   }
 }

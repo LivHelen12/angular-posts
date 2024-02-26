@@ -5,4 +5,6 @@ export interface Post {
   postedAt: Date;
   content: string;
   photo_url: string;
+  likes: number;
+  isAlreadyLiked: boolean;
 }

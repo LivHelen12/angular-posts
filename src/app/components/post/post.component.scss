@@ -27,6 +27,11 @@
 
       width: 100%;
       line-break: anywhere;
+
+      button {
+        font-size: 1.15rem;
+        background: transparent;
+      }
     }
   }
 }
@@ -36,12 +41,17 @@ footer {
     width: 100%;
     margin-top: 1rem;
 
-    display: flex;
-    justify-content: space-between;
-
     button {
       border: none;
       background: none;
+
+      span {
+        margin-left: .3rem;
+      }
     }
   }
+}
+
+.liked {
+  color: #ff0000;
 }
