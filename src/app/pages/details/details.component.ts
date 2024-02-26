@@ -34,8 +34,6 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
       this.post = post;
     });
   }
-
-
   ngOnDestroy() {
     this.unsubscribed$.next();
     this.unsubscribed$.complete();
