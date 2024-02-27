@@ -1,5 +1,10 @@
 <ng-container>
-  <app-header [title]="'Voltar'"></app-header>
+  <app-header>
+    <div class="header">
+      <i class="bi bi-arrow-left"></i>
+      <p>Voltar</p>
+    </div>
+  </app-header>
 
   <div *ngIf="post">
     <app-post [post]="post"></app-post>

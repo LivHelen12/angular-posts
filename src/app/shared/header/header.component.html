@@ -1,6 +1,8 @@
 <ng-container>
   <header>
-    <a [routerLink]="setRouterLink">{{ title }}</a>
+    <a [routerLink]="setRouterLink">
+      <ng-content></ng-content>
+    </a>
     <span>✨</span>
   </header>
 </ng-container>
