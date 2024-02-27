@@ -1,5 +1,6 @@
 <ng-container>
-  <button>
+  <input type="file" #fileInput style="display: none;" />
+  <button type="button" (click)="fileInput.click()">
     <i class="bi bi-images"></i>
   </button>
 </ng-container>
