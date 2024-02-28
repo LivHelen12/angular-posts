@@ -48,6 +48,18 @@ export class PostService {
     this.postsSubject$.next(filteredPosts);
   }
 
+  update(id: number, content: string) {
+    const allPosts = this.postsSubject$.getValue();
+    const postToUpdate = allPosts.find((post) => post.id === id);
+
+    if (postToUpdate) {
+      postToUpdate.content = content;
+    }
+
+    this.storageService.set(allPosts);
+    this.postsSubject$.next(allPosts);
+  }
+
   toggleLike(id: number) {
     const allPosts = this.postsSubject$.getValue();
     const postToLike = allPosts.find((post) => post.id === id);
