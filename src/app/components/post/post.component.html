@@ -13,12 +13,17 @@
 
       <div class="text">
         <p>{{ post.content }}</p>
-        <button type="button" (click)="onSetModal(post.id)">
+
+        <button type="button" *ngIf="showDeleteButton" (click)="onSetModal(post.id)">
           <i class="bi bi-trash"></i>
         </button>
         <app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>
+
+        <button type="button" *ngIf="showEditButton">
+          <i class="bi bi-pencil-square"></i>
+        </button>
       </div>
-      
+
       <footer>
         <div class="actions">
           <button (click)="onLike(post.id)">

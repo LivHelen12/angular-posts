@@ -7,18 +7,20 @@ import { Post } from '../../interfaces/post';
 import { PhotoComponent } from '../../shared/photo/photo.component';
 import { Subject, takeUntil } from 'rxjs';
 import { PostComponent } from '../../components/post/post.component';
+import { FormPostComponent } from '../../components/form/form.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PhotoComponent, PostComponent],
+  imports: [CommonModule, HeaderComponent, PhotoComponent, PostComponent, FormPostComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
   post!: Post | undefined;
   unsubscribed$: Subject<void> = new Subject<void>();
+
+  constructor(private route: ActivatedRoute, private postService: PostService) { }
 
   ngOnInit() {
     this.getPostById();
@@ -33,7 +35,8 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
       const post = posts.find((post) => post.id === Number(id));
       this.post = post;
     });
-  }
+  };
+
   ngOnDestroy() {
     this.unsubscribed$.next();
     this.unsubscribed$.complete();

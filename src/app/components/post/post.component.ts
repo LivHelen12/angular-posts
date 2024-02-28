@@ -8,7 +8,6 @@ import { PostService } from '../../services/post/post.service';
 import { DatetimePipe } from '../../pipes/datetime.pipe';
 import { ModalComponent } from '../../shared/modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -27,6 +26,8 @@ import { Subscription } from 'rxjs';
 
 export class PostComponent implements OnInit {
   @Input() post!: Post;
+  @Input() showDeleteButton: boolean = true;
+  @Input() showEditButton: boolean = false;
   isLiked!: boolean;
 
   constructor(private postService: PostService, private modalService: ModalService) { }
