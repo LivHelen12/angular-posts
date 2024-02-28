@@ -27,7 +27,6 @@ import { Subscription } from 'rxjs';
 
 export class PostComponent implements OnInit {
   @Input() post!: Post;
-  isOpenModal!: boolean;
   isLiked!: boolean;
 
   constructor(private postService: PostService, private modalService: ModalService) { }
@@ -36,16 +35,16 @@ export class PostComponent implements OnInit {
     this.isLiked = this.post.isAlreadyLiked;
   }
 
-  onSetModal() {
-    this.modalService.open$.subscribe((isOpen) => {
-      this.isOpenModal = isOpen;
-    })
-
-    if (this.isOpenModal) {
+  onSetModal(postId: number) {
+    if (this.modalService.isModalOpen(postId)) {
       return this.modalService.closeModal();
     }
 
-    this.modalService.openModal();
+    return this.modalService.openModal(postId);
+  }
+
+  isModalOpen(postId: number): boolean {
+    return this.modalService.isModalOpen(postId);
   }
 
   onLike(id: number) {

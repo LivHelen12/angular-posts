@@ -13,10 +13,10 @@
 
       <div class="text">
         <p>{{ post.content }}</p>
-        <button type="button" (click)="onSetModal()">
+        <button type="button" (click)="onSetModal(post.id)">
           <i class="bi bi-trash"></i>
         </button>
-        <app-modal *ngIf="isOpenModal" [post]="post"></app-modal>
+        <app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>
       </div>
       
       <footer>

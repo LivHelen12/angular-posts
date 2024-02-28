@@ -19,15 +19,10 @@ export class ModalComponent {
 
   onDelete(id: number) {
     this.postService.remove(id);
+    this.onCloseModal();
   }
 
   onCloseModal() {
-    this.modalService.open$.subscribe((open) => {
-      this.isModalOpen = open;
-    })
-
-    if (this.isModalOpen) {
-      return this.modalService.closeModal();
-    }
+    this.modalService.closeModal();
   }
 }
