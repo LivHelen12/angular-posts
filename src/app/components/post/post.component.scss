@@ -24,11 +24,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
 
       width: 100%;
       line-break: anywhere;
 
       button {
+        position: absolute;
+        right: 0;
+        top: 0;
         font-size: 1.15rem;
         background: transparent;
       }

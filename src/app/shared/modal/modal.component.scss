@@ -1,5 +1,6 @@
 .modal {
-  position: absolute;
+  position: fixed;
+  z-index: 9999;
 
   width: 200px;
   min-height: 150px;
@@ -7,7 +8,7 @@
 
   border-radius: 6px;
   border: 1px solid #efefef;
-  
+
   padding: 10px;
 
   .content {

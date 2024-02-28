@@ -1,3 +1,4 @@
+import { ModalService } from './../../services/modal/modal.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -7,6 +8,7 @@ import { PostService } from '../../services/post/post.service';
 import { DatetimePipe } from '../../pipes/datetime.pipe';
 import { ModalComponent } from '../../shared/modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -25,17 +27,25 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 export class PostComponent implements OnInit {
   @Input() post!: Post;
+  isOpenModal!: boolean;
   isLiked!: boolean;
-  isOpen = false;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private modalService: ModalService) { }
 
   ngOnInit() {
     this.isLiked = this.post.isAlreadyLiked;
   }
 
-  onDelete(id: number) {
-    this.postService.remove(id);
+  onSetModal() {
+    this.modalService.open$.subscribe((isOpen) => {
+      this.isOpenModal = isOpen;
+    })
+
+    if (this.isOpenModal) {
+      return this.modalService.closeModal();
+    }
+
+    this.modalService.openModal();
   }
 
   onLike(id: number) {

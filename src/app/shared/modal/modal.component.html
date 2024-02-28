@@ -1,12 +1,4 @@
-<button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-  {{isOpen ? "Fechar" : "Abrir"}}
-</button>
-
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="trigger"
-  [cdkConnectedOverlayOpen]="isOpen"
->
+<ng-template ngIf="isOpen">
   <div class="modal">
     <div class="content">
       <h3>Excluir</h3>
@@ -14,8 +6,8 @@
     </div>
 
     <div class="actions">
-      <button type="button" class="primary">Excluir</button>
-      <button type="button" class="secondary">Cancelar</button>
+      <button type="button" class="primary" (click)="onDelete(post.id)">Excluir</button>
+      <button type="button" class="secondary" (click)="onCloseModal()">Cancelar</button>
     </div>
   </div>
 </ng-template>
