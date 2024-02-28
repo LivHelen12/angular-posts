@@ -19,7 +19,7 @@
         </button>
         <app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>
 
-        <button type="button" *ngIf="showEditButton">
+        <button type="button" *ngIf="showEditButton" (click)="onEdit()">
           <i class="bi bi-pencil-square"></i>
         </button>
       </div>

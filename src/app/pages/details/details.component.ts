@@ -18,12 +18,17 @@ import { FormPostComponent } from '../../components/form/form.component';
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
   post!: Post | undefined;
+  receivedPost!: Post;
   unsubscribed$: Subject<void> = new Subject<void>();
 
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
   ngOnInit() {
     this.getPostById();
+  }
+
+  onEdit(post: Post) {
+    this.receivedPost = post;
   }
 
   getPostById() {

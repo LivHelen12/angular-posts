@@ -1,5 +1,5 @@
 import { ModalService } from './../../services/modal/modal.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PhotoComponent } from '../../shared/photo/photo.component';
@@ -28,12 +28,17 @@ export class PostComponent implements OnInit {
   @Input() post!: Post;
   @Input() showDeleteButton: boolean = true;
   @Input() showEditButton: boolean = false;
+  @Output() editPost = new EventEmitter();
   isLiked!: boolean;
 
   constructor(private postService: PostService, private modalService: ModalService) { }
 
   ngOnInit() {
     this.isLiked = this.post.isAlreadyLiked;
+  }
+
+  onEdit() {
+    this.editPost.emit(this.post);
   }
 
   onSetModal(postId: number) {

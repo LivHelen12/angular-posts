@@ -7,7 +7,7 @@
   </app-header>
 
   <div class="border" *ngIf="post">
-    <app-form-post></app-form-post>
+    <app-form-post [receivedPost]="receivedPost"></app-form-post>
   </div>
 
   <div *ngIf="post">
@@ -15,6 +15,7 @@
       [showDeleteButton]="false" 
       [showEditButton]="true" 
       [post]="post"
+      (editPost)="onEdit($event)"
     ></app-post>
   </div>
 </ng-container>
