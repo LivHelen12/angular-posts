@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
+import { HeaderComponent } from '../../components/ui//header/header.component';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../interfaces/post';
-import { PhotoComponent } from '../../shared/photo/photo.component';
+import { PhotoComponent } from '../../components/ui//photo/photo.component';
 import { Subject, takeUntil } from 'rxjs';
 import { PostComponent } from '../../components/post/post.component';
 import { FormPostComponent } from '../../components/form/form.component';

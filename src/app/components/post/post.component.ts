@@ -2,11 +2,11 @@ import { ModalService } from './../../services/modal/modal.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PhotoComponent } from '../../shared/photo/photo.component';
+import { PhotoComponent } from '../../components/ui//photo/photo.component';
 import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
 import { DatetimePipe } from '../../pipes/datetime.pipe';
-import { ModalComponent } from '../../shared/modal/modal.component';
+import { ModalComponent } from '../../components/ui//modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 @Component({

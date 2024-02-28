@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { PostService } from './../../services/post/post.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { Post } from '../../interfaces/post';
-import { ModalService } from '../../services/modal/modal.service';
+import { Post } from '../../../interfaces/post';
+import { PostService } from '../../../services/post/post.service';
+import { ModalService } from '../../../services/modal/modal.service';
 @Component({
   selector: 'app-modal',
   standalone: true,

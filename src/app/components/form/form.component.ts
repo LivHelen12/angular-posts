@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PhotoComponent } from '../../shared/photo/photo.component';
-import { ButtonComponent } from '../../shared/button/button.component';
-import { TextareaComponent } from '../../shared/textarea/textarea.component';
+import { PhotoComponent } from '../../components/ui//photo/photo.component';
+import { ButtonComponent } from '../../components/ui//button/button.component';
+import { TextareaComponent } from '../../components/ui//textarea/textarea.component';
 import { PostService } from '../../services/post/post.service';
-import { ActionsComponent } from '../../shared/actions/actions.component';
+import { ActionsComponent } from '../../components/ui//actions/actions.component';
 import { Post } from '../../interfaces/post';
 @Component({
   selector: 'app-form-post',

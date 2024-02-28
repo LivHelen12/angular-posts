@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Post } from '../../interfaces/post';
 import { PostService } from '../../services/post/post.service';
-import { HeaderComponent } from '../../shared/header/header.component';
+import { HeaderComponent } from '../../components/ui//header/header.component';
 import { Subject, takeUntil } from 'rxjs';
 import { PostComponent } from '../../components/post/post.component';
 import { FormPostComponent } from '../../components/form/form.component';
