@@ -28,7 +28,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
   }
 
   onEdit(post: Post) {
-    this.receivedPost = post;
+    this.receivedPost = { ...post };
   }
 
   getPostById() {
