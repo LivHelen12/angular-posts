@@ -54,6 +54,7 @@ export class PostService {
 
     if (postToUpdate) {
       postToUpdate.content = content;
+      postToUpdate.postedAt = new Date();
     }
 
     this.storageService.set(allPosts);
