@@ -8,8 +8,7 @@
       ></app-textarea>
       
       <div class="actions-container">
-        <app-actions></app-actions>
-        <app-button [disabled]="postForm.invalid"></app-button>
+        <app-button [disabled]="isTweetButtonDisabled()"></app-button>
       </div>
     </form>
   </div>
