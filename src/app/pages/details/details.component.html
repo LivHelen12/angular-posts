@@ -1,21 +1,16 @@
-<ng-container>
-  <app-header>
-    <div class="header">
-      <i class="bi bi-arrow-left"></i>
-      <p>Voltar</p>
-    </div>
-  </app-header>
+<app-header>
+  <a routerLink="">
+    <i class="bi bi-arrow-left"></i>
+    Voltar
+  </a>
+  <span>✨</span>
+</app-header>
 
-  <div class="border" *ngIf="post">
-    <app-form-post [receivedPost]="receivedPost"></app-form-post>
-  </div>
 
-  <div *ngIf="post">
-    <app-post 
-      [showDeleteButton]="false" 
-      [showEditButton]="true" 
-      [post]="post"
-      (editPost)="onEdit($event)"
-    ></app-post>
-  </div>
-</ng-container>
+<div class="border" *ngIf="post">
+  <app-form-post [receivedPost]="receivedPost"></app-form-post>
+</div>
+
+<div *ngIf="post">
+  <app-post [showDeleteButton]="false" [showEditButton]="true" [post]="post" (editPost)="onEdit($event)"></app-post>
+</div>

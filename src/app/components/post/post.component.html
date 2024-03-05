@@ -1,39 +1,36 @@
-<ng-container>
-  <div class="post">
-    <app-photo></app-photo>
+<app-photo></app-photo>
 
-    <div class="content">
-      <a [routerLink]="['/post', post.id]">
-        <div class="user">
-          <h4>{{ post.name }}</h4>
-          <p class="username">{{ post.username }}</p>
-          <p class="date">• {{ post.postedAt | datetime }}</p>
-        </div>
-      </a>
-
-      <div class="text">
-        <p>{{ post.content }}</p>
-
-        <button type="button" *ngIf="showDeleteButton" (click)="onSetModal(post.id)">
-          <i class="bi bi-trash"></i>
-        </button>
-        <app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>
-
-        <button type="button" *ngIf="showEditButton" (click)="onEdit()">
-          <i class="bi bi-pencil-square"></i>
-        </button>
-      </div>
-
-      <footer>
-        <div class="actions">
-          <button (click)="onLike(post.id)">
-            <div class="likes">
-              <i class="bi bi-heart-fill" [ngClass]="{'liked': isLiked}"></i>
-              <span>{{ post.likes }}</span>
-            </div>
-          </button>
-        </div>
-      </footer>
+<div class="content">
+  <a [routerLink]="['/post', post.id]">
+    <div class="user">
+      <h4>{{ post.name }}</h4>
+      <p class="username">{{ post.username }}</p>
+      <p class="date">• {{ post.postedAt | datetime }}</p>
     </div>
+  </a>
+
+  <div class="text">
+    <p>{{ post.content }}</p>
+
+    <button type="button" *ngIf="showDeleteButton" (click)="onSetModal(post.id)">
+      <i class="bi bi-trash"></i>
+    </button>    
+
+    <button type="button" *ngIf="showEditButton" (click)="onEdit()">
+      <i class="bi bi-pencil-square"></i>
+    </button>
   </div>
-</ng-container>
+
+  <footer>
+    <div class="actions">
+      <button (click)="onLike(post.id)">
+        <div class="likes">
+          <i class="bi bi-heart-fill" [ngClass]="{'liked': isLiked}"></i>
+          <span>{{ post.likes }}</span>
+        </div>
+      </button>
+    </div>
+  </footer>
+</div>
+
+<app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>

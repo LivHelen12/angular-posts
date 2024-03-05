@@ -1,7 +1,7 @@
-import { StorageService } from './../storage/storage.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { Post } from '../../interfaces/post';
+import { StorageService } from './../storage/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,12 @@ export class PostService {
 
     this.storageService.set(allPosts);
     this.postsSubject$.next(allPosts);
+  }
+
+  asById(id: number) {
+    return this.postsSubject$.asObservable().pipe(
+      map((posts) => posts.find((post) => post.id = id))
+    );
   }
 
   toggleLike(id: number) {

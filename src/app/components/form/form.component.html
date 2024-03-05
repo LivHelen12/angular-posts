@@ -1,14 +1,14 @@
 <ng-container>
   <div class="form">
     <app-photo></app-photo>
+
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <app-textarea 
-        [id]="'post'"
-        [control]="postForm.controls.post"
-      ></app-textarea>
-      
+      <app-textarea [id]="'post'" [formControl]="postForm.controls.post"></app-textarea>
+
       <div class="actions-container">
-        <app-button [disabled]="isTweetButtonDisabled()"></app-button>
+        <button app-button type="submit" class="yellow" [disabled]="isTweetButtonDisabled()">
+          Tweet
+        </button>
       </div>
     </form>
   </div>

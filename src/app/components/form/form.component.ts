@@ -52,7 +52,8 @@ export class FormPostComponent implements OnChanges {
       this.postForm.reset();
     }
   };
-  isTweetButtonDisabled() {
+
+  get isTweetButtonDisabled() {
     const inputField = this.postForm.get("post");
     return Boolean(inputField?.invalid || inputField?.pristine);
   }

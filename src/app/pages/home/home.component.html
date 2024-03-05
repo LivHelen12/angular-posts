@@ -1,18 +1,25 @@
-<ng-container>
-  <app-header>
-    <h3>Página inicial</h3>
-  </app-header>
+<app-header>
+  <h3>Página inicial</h3>
+  <span>✨</span>
+</app-header>
 
-  <div class="border">
-    <app-form-post></app-form-post>
-  </div>
 
-  <div *ngIf="posts.length > 0; else showNoPosts">
-    <div *ngFor="let post of posts">
-      <app-post [post]="post"></app-post>
-    </div>
+<app-form-post class="border"></app-form-post>
+
+<!-- Considerando que o exemplo é uma request HTTP -->
+<div *ngIf="posts.length > 0; else showNoPosts">
+  <div *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
   </div>
-</ng-container>
+</div>
+
+<!-- Considerando que o exemplo NÃO é uma request HTTP -->
+<div *ngIf="posts$ | async as posts">
+  <div *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </div>
+</div>
+
 
 <ng-template #showNoPosts>
   <div class="no__posts">

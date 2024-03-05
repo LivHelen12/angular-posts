@@ -1,22 +1,20 @@
 
-.bottom {
-  button {
-    padding: 9px 18px;
-    border: none;
-    outline: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    background: #1da1f2;
-    color: #fff;
-    cursor: pointer;
-  }
+:host {
+  padding: 9px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #1da1f2;
+  color: #fff;
+  cursor: pointer;
 
-  button:hover {
+  &:hover {
     background: #0f8bdf;
   }
 
-  button:disabled {
+  &:disabled {
     background: #b3b3b3;
     cursor: not-allowed;
   }

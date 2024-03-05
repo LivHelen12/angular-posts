@@ -29,6 +29,9 @@ export class PostComponent implements OnInit {
   @Input() showDeleteButton: boolean = true;
   @Input() showEditButton: boolean = false;
   @Output() editPost = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() likePost = new EventEmitter();
+
   isLiked!: boolean;
 
   constructor(private postService: PostService, private modalService: ModalService) { }

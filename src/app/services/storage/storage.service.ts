@@ -5,8 +5,8 @@ import { Post } from '../../interfaces/post';
   providedIn: 'root'
 })
 export class StorageService {
-  storageKey = "posts";
-  constructor() { }
+  private readonly storageKey = "posts";
+
 
   set(value: Post[]) {
     localStorage.setItem(this.storageKey, JSON.stringify(value));
