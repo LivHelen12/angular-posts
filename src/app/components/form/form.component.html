@@ -1,15 +1,10 @@
-<ng-container>
-  <div class="form">
-    <app-photo></app-photo>
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <app-textarea 
-        [id]="'post'"
-        [control]="postForm.controls.post"
-      ></app-textarea>
-      
-      <div class="actions-container">
-        <app-button [disabled]="isTweetButtonDisabled()"></app-button>
-      </div>
-    </form>
-  </div>
-</ng-container>
+<div class="form">
+  <app-photo></app-photo>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <app-textarea [id]="'post'" [control]="postForm.controls.post"></app-textarea>
+
+    <div class="actions-container">
+      <app-button [disabled]="isTweetButtonDisabled()"></app-button>
+    </div>
+  </form>
+</div>
