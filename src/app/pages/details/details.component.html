@@ -1,13 +1,13 @@
 <app-header>
-  <div class="header">
-    <i class="bi bi-arrow-left"></i>
-    <p>Voltar</p>
+  <div class="container">
+    <a routerLink="">
+      <i class="bi bi-arrow-left"></i>
+      <h4>Voltar</h4>
+    </a>
   </div>
 </app-header>
 
-<div class="border" *ngIf="post">
-  <app-form-post [receivedPost]="receivedPost"></app-form-post>
-</div>
+<app-form-post [receivedPost]="receivedPost"></app-form-post>
 
 <div *ngIf="post">
   <app-post [showDeleteButton]="false" [showEditButton]="true" [post]="post" (editPost)="onEdit($event)"></app-post>

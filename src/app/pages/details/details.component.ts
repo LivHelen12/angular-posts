@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/ui//header/header.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PostService } from '../../services/post/post.service';
 import { Post } from '../../interfaces/post';
 import { PhotoComponent } from '../../components/ui//photo/photo.component';
@@ -12,7 +12,7 @@ import { FormPostComponent } from '../../components/form/form.component';
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PhotoComponent, PostComponent, FormPostComponent],
+  imports: [CommonModule, HeaderComponent, PhotoComponent, PostComponent, FormPostComponent, RouterModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })

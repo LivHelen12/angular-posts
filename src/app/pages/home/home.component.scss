@@ -1,10 +1,18 @@
-.border {
-  border-bottom: 1px solid #efefef;
-}
-
-.no__posts {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 1.3rem;
-  color: #717171;
+:host {
+  .container { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .border {
+    border-bottom: 1px solid #efefef;
+  }
+  
+  .no__posts {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #717171;
+  }
 }
