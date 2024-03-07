@@ -8,7 +8,7 @@ import { Post } from '../../interfaces/post';
 })
 
 export class PostService {
-  postsSubject$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
+  postsSubject$ = new BehaviorSubject<Post[]>([]);
 
   constructor(private storageService: StorageService) {
     this.list();

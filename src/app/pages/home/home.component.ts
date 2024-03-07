@@ -23,7 +23,7 @@ import { FormPostComponent } from '../../components/form/form.component';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   posts!: Post[];
-  private unsubscribe$: Subject<void> = new Subject<void>();
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private postService: PostService) { }
 

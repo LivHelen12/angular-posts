@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalService {
-  openModalId$: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+  openModalId$ = new BehaviorSubject<number | null>(null);
 
   constructor() { }
 
