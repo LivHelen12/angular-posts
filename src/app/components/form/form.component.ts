@@ -1,10 +1,9 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PhotoComponent } from '../../components/ui//photo/photo.component';
 import { ButtonComponent } from '../../components/ui//button/button.component';
 import { TextareaComponent } from '../../components/ui//textarea/textarea.component';
 import { PostService } from '../../services/post/post.service';
-import { ActionsComponent } from '../../components/ui//actions/actions.component';
 import { Post } from '../../interfaces/post';
 @Component({
   selector: 'app-form-post',
@@ -13,8 +12,7 @@ import { Post } from '../../interfaces/post';
     PhotoComponent,
     ReactiveFormsModule,
     ButtonComponent,
-    TextareaComponent,
-    ActionsComponent
+    TextareaComponent
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
@@ -29,9 +27,11 @@ export class FormPostComponent implements OnChanges {
 
   constructor(private postService: PostService) { }
 
-  ngOnChanges() {
-    if (this.receivedPost) {
-      this.postForm.get("post")?.setValue(this.receivedPost.content);
+  ngOnChanges(changes: SimpleChanges) {
+    const { currentValue } = changes["receivedPost"];
+
+    if (currentValue) {
+      this.postForm.get("post")?.setValue((currentValue as Post).content);
     }
   }
 
@@ -52,7 +52,8 @@ export class FormPostComponent implements OnChanges {
       this.postForm.reset();
     }
   };
-  isTweetButtonDisabled() {
+
+  get isTweetButtonDisabled() {
     const inputField = this.postForm.get("post");
     return Boolean(inputField?.invalid || inputField?.pristine);
   }
