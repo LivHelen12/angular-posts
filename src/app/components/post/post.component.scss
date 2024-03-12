@@ -1,9 +1,11 @@
 .post {
   display: flex;
   gap: .5rem;
-  
-  border-bottom: 1px solid #efefef;
   padding: 1rem;
+
+  &:first-child {
+    border-top: 1px solid #efefef;
+  }
 
   .content {
     width: 100%;
