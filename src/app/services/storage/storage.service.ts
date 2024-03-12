@@ -4,8 +4,9 @@ import { Post } from '../../interfaces/post';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StorageService {
-  storageKey = "posts";
+  private readonly storageKey = "posts";
   constructor() { }
 
   set(value: Post[]) {
@@ -15,13 +16,5 @@ export class StorageService {
   get() {
     const value = localStorage.getItem(this.storageKey);
     return value ? JSON.parse(value) : null;
-  }
-
-  remove() {
-    localStorage.removeItem(this.storageKey);
-  }
-
-  clear() {
-    localStorage.clear();
   }
 }
