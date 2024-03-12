@@ -4,7 +4,9 @@
     <app-textarea [id]="'post'" [control]="postForm.controls.post"></app-textarea>
 
     <div class="actions-container">
-      <app-button [disabled]="isTweetButtonDisabled()"></app-button>
+      <button action [disabled]="isTweetButtonDisabled">
+        Tweet
+      </button>
     </div>
   </form>
 </div>

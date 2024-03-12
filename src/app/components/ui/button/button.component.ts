@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'button[action]',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+  styleUrl: './button.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
-  @Input() disabled: boolean = false;
+  @HostBinding('class.action') action = true;
 }
