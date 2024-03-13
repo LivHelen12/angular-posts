@@ -1,13 +1,7 @@
-<ng-template ngIf="isOpen">
-  <div class="modal">
-    <div class="content">
-      <h3>Excluir</h3>
-      <p>Tem certeza que deseja excluir?</p>
-    </div>
-
-    <div class="actions">
-      <button type="button" class="primary" (click)="onDelete(post.id)">Excluir</button>
-      <button type="button" class="secondary" (click)="onCloseModal()">Cancelar</button>
-    </div>
+<ng-template [ngIf]="isModalOpen">
+  <div class="container">
+    <ng-content select="[title]"></ng-content>
+    <ng-content select="[body]"></ng-content>
+    <ng-content select="[actions]"></ng-content>
   </div>
 </ng-template>

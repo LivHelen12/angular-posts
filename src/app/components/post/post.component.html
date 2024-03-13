@@ -16,9 +16,8 @@
       <button type="button" *ngIf="showDeleteButton" (click)="onSetModal(post.id)">
         <i class="bi bi-trash"></i>
       </button>
-      <app-modal *ngIf="isModalOpen(post.id)" [post]="post"></app-modal>
 
-      <button type="button" *ngIf="showEditButton" (click)="onEdit()">
+      <button type="button" *ngIf="showEditButton" (click)="onEdit">
         <i class="bi bi-pencil-square"></i>
       </button>
     </div>
@@ -35,3 +34,14 @@
     </footer>
   </div>
 </div>
+
+<app-modal *ngIf="isModalOpen(post.id)" [post]="post">
+    <h2 title>Excluir</h2>
+    <p body style="margin: 1.2rem 0;">
+      Tem certeza que deseja excluir este post?
+    </p>
+    <div actions style="display: flex; justify-content: space-between;">
+      <button action (click)="onDelete(post.id)">Excluir</button>
+      <button action color="danger" (click)="onClose">Cancelar</button>
+    </div>
+</app-modal>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'button[action]',
@@ -10,5 +10,15 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
+  @Input() color: "success" | "danger" = "success";
+
   @HostBinding('class.action') action = true;
+
+  @HostBinding('class.success') get success() {
+    return this.color === 'success';
+  }
+
+  @HostBinding('class.danger') get danger() {
+    return this.color === 'danger';
+  }
 }

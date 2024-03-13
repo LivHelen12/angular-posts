@@ -4,25 +4,25 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { Post } from '../../../interfaces/post';
 import { PostService } from '../../../services/post/post.service';
 import { ModalService } from '../../../services/modal/modal.service';
+import { ButtonComponent } from '../button/button.component';
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [CommonModule, OverlayModule],
+  imports: [
+    CommonModule,
+    OverlayModule,
+    ButtonComponent
+  ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
   @Input() post!: Post;
-  isModalOpen!: boolean;
 
-  constructor(private postService: PostService, private modalService: ModalService) { }
+  constructor(private modalService: ModalService) { }
 
-  onDelete(id: number) {
-    this.postService.remove(id);
-    this.onCloseModal();
-  }
 
-  onCloseModal() {
-    this.modalService.closeModal();
+  get isModalOpen() {
+    return this.modalService.isModalOpen(this.post.id);
   }
 }

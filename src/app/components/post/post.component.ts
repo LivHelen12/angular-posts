@@ -8,6 +8,7 @@ import { PostService } from '../../services/post/post.service';
 import { DatetimePipe } from '../../pipes/datetime.pipe';
 import { ModalComponent } from '../../components/ui//modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ButtonComponent } from '../ui/button/button.component';
 
 @Component({
   selector: 'app-post',
@@ -18,7 +19,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     RouterModule,
     DatetimePipe,
     ModalComponent,
-    OverlayModule
+    OverlayModule,
+    ButtonComponent
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
@@ -37,20 +39,29 @@ export class PostComponent implements OnInit {
     this.isLiked = this.post.isAlreadyLiked;
   }
 
-  onEdit() {
-    this.editPost.emit(this.post);
+  onDelete(id: number) {
+    this.postService.remove(id);
+    this.modalService.closeModal();
   }
 
-  onSetModal(postId: number) {
-    if (this.modalService.isModalOpen(postId)) {
-      return this.modalService.closeModal();
-    }
+  get onClose(): void {
+    return this.modalService.closeModal();
+  }
 
-    return this.modalService.openModal(postId);
+  get onEdit() {
+    return this.editPost.emit(this.post);
   }
 
   isModalOpen(postId: number): boolean {
     return this.modalService.isModalOpen(postId);
+  }
+
+  onSetModal(postId: number) {
+    if (this.isModalOpen(postId)) {
+      return this.modalService.closeModal();
+    }
+
+    return this.modalService.openModal(postId);
   }
 
   onLike(id: number) {

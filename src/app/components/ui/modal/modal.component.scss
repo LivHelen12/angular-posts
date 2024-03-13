@@ -1,37 +1,26 @@
-.modal {
+:host {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+
   position: fixed;
+  left: 0;
+  top: 0;
+
   z-index: 9999;
 
-  width: 200px;
-  min-height: 150px;
-  background-color: #fcfcfc;
+  .container {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
 
-  border-radius: 6px;
-  border: 1px solid #efefef;
-
-  padding: 10px;
-
-  .content {
-    p {
-      margin: 1rem 0;
-    }
-  }
-
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-
-    button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .primary {
-      background: #1da1f2;
-      color: #fff;
-    }
+    background-color: #efefef;
+    border-radius: 8px;
   }
 }
