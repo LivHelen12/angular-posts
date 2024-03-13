@@ -9,7 +9,7 @@
 
   .content {
     width: 100%;
-    
+
     .user {
       display: flex;
       gap: .5rem;
@@ -17,7 +17,8 @@
       margin-bottom: .5rem;
     }
 
-    .date, .username {
+    .date,
+    .username {
       font-size: 13px;
       color: #717171;
     }
@@ -42,59 +43,20 @@
   }
 }
 
-footer {
-  .actions {
-    width: 100%;
-    margin-top: 1rem;
+.actions {
+  width: 100%;
+  margin-top: 1rem;
 
-    button {
-      border: none;
-      background: none;
+  button {
+    border: none;
+    background: none;
 
-      span {
-        margin-left: .3rem;
-      }
+    span {
+      margin-left: .3rem;
     }
   }
 }
 
 .liked {
   color: #ff0000;
-}
-
-.modal {
-  position: absolute;
-
-  width: 200px;
-  min-height: 150px;
-  background-color: #fcfcfc;
-
-  border-radius: 6px;
-  border: 1px solid #efefef;
-  
-  padding: 10px;
-
-  .content {
-    p {
-      margin: 1rem 0;
-    }
-  }
-
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-
-    button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .primary {
-      background: #1da1f2;
-      color: #fff;
-    }
-  }
 }

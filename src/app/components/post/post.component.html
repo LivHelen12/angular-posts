@@ -22,26 +22,24 @@
       </button>
     </div>
 
-    <footer>
-      <div class="actions">
-        <button (click)="onLike(post.id)">
-          <div class="likes">
-            <i class="bi bi-heart-fill" [ngClass]="{'liked': isLiked}"></i>
-            <span>{{ post.likes }}</span>
-          </div>
-        </button>
-      </div>
-    </footer>
+    <div class="actions">
+      <button (click)="onLike(post.id)">
+        <div class="likes">
+          <i class="bi bi-heart-fill" [ngClass]="{'liked': isLiked}"></i>
+          <span>{{ post.likes }}</span>
+        </div>
+      </button>
+    </div>
   </div>
 </div>
 
 <app-modal *ngIf="isModalOpen(post.id)" [post]="post">
-    <h2 title>Excluir</h2>
-    <p body style="margin: 1.2rem 0;">
-      Tem certeza que deseja excluir este post?
-    </p>
-    <div actions style="display: flex; justify-content: space-between;">
-      <button action (click)="onDelete(post.id)">Excluir</button>
-      <button action color="danger" (click)="onClose">Cancelar</button>
-    </div>
+  <h2 title>Excluir</h2>
+  <p body style="margin: 1.2rem 0;">
+    Tem certeza que deseja excluir este post?
+  </p>
+  <div actions style="display: flex; justify-content: space-between;">
+    <button action (click)="onDelete(post.id)">Excluir</button>
+    <button action color="danger" (click)="onClose">Cancelar</button>
+  </div>
 </app-modal>
